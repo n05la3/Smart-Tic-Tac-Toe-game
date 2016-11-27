@@ -1,0 +1,5 @@
+School Project: Building a tic tac toe game in c
+
+Description: for full description of how the game works visit https://en.wikipedia.org/wiki/Tic-tac-toe
+
+Restriction: Use a two dimensional array to hold the tokens and make it possible for the tokens to be placed using the numbers 1-9. Make it possible to play with both computer and human and equally enhance the difficulty level of the game when playing with the computer. 
