@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-#include<time.h>
+#include<time.h>//to pass in the srand function
 int Row,Column,NoMoves,Cordinate,expert;
 char player1[18],player2[18]; //string variable to hold names of players
 int validMove,GameHasBeenWon,GameHasBeenDrawn;
@@ -152,6 +152,94 @@ int smartMove(void)
     else computerPlay();
     return Cordinate;
 }
+
+int smartAttack(void)//Makes game more interesting as computer knows exactly what to do.
+{
+   if(Board[0][0]=='O'&&Board[0][1]=='O'&&Board[0][2]==' ')
+        Cordinate=3;
+   else if(Board[1][0]=='O'&&Board[1][1]=='O'&&Board[1][2]==' ')
+        Cordinate=6;
+   else if(Board[2][0]=='O'&&Board[2][1]=='O'&&Board[2][2]==' ')
+        Cordinate=9;
+   else if(Board[0][0]=='O'&&Board[1][0]=='O'&&Board[2][0]==' ')
+        Cordinate=7;
+   else if(Board[0][1]=='O'&&Board[1][1]=='O'&&Board[2][1]==' ')
+        Cordinate=8;
+   else if(Board[0][2]=='O'&&Board[1][2]=='O'&&Board[2][2]==' ')
+        Cordinate=9;
+   else if(Board[0][0]=='O'&&Board[1][1]=='O'&&Board[2][2]==' ')
+        Cordinate=9;
+   else if(Board[2][2]=='O'&&Board[1][1]=='O'&&Board[0][0]==' ')
+        Cordinate=1;
+   else if(Board[0][2]=='O'&&Board[1][1]=='O'&&Board[2][0]==' ')
+        Cordinate=7;
+   else if(Board[2][0]=='O'&&Board[1][1]=='O'&&Board[0][2]==' ')
+        Cordinate=3;
+   else if(Board[2][0]=='O'&&Board[0][2]=='O'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[0][0]=='O'&&Board[2][0]=='O'&&Board[1][0]==' ')
+        Cordinate=4;
+   else if(Board[0][1]=='O'&&Board[2][1]=='O'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[0][0]=='O'&&Board[0][2]=='O'&&Board[0][1]==' ')
+        Cordinate=2;
+   else if(Board[1][0]=='O'&&Board[1][2]=='O'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[2][0]=='O'&&Board[2][2]=='O'&&Board[2][1]==' ')
+        Cordinate=8;
+   else if(Board[2][1]=='O'&&Board[2][2]=='O'&&Board[2][0]==' ')
+        Cordinate=7;
+   return Cordinate;
+   }
+
+int smartDefence(void)//function to increase game intelligence
+{
+   if(Board[0][0]=='X'&&Board[0][1]=='X'&&Board[0][2]==' ')
+       Cordinate=3;
+   else if(Board[0][2]=='X'&&Board[2][2]=='X'&&Board[1][2]==' ')
+       Cordinate=6;
+   else if(Board[1][1]=='X'&&Board[2][1]=='X'&&Board[0][1]==' ')
+       Cordinate=2;
+   else if(Board[1][0]=='X'&&Board[2][0]=='X'&&Board[0][0]==' ')
+       Cordinate=1;
+   else if(Board[1][0]=='X'&&Board[1][1]=='X'&&Board[1][2]==' ')
+       Cordinate=6;
+   else if(Board[2][0]=='X'&&Board[2][1]=='X'&&Board[2][2]==' ')
+       Cordinate=9;
+   else if(Board[0][0]=='X'&&Board[1][0]=='X'&&Board[2][0]==' ')
+        Cordinate=7;
+   else if(Board[0][1]=='X'&&Board[1][1]=='X'&&Board[2][1]==' ')
+        Cordinate=8;
+   else if(Board[0][2]=='X'&&Board[1][2]=='X'&&Board[2][2]==' ')
+        Cordinate=9;
+   else if(Board[0][0]=='X'&&Board[1][1]=='X'&&Board[2][2]==' ')
+        Cordinate=9;
+   else if(Board[2][2]=='X'&&Board[1][1]=='X'&&Board[0][0]==' ')
+        Cordinate=1;
+   else if(Board[0][2]=='X'&&Board[1][1]=='X'&&Board[2][0]==' ')
+        Cordinate=7;
+   else if(Board[2][0]=='X'&&Board[1][1]=='X'&&Board[0][2]==' ')
+        Cordinate=3;
+   else if(Board[2][0]=='X'&&Board[0][2]=='X'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[0][0]=='X'&&Board[2][0]=='X'&&Board[1][0]==' ')
+        Cordinate=4;
+   else if(Board[0][1]=='X'&&Board[2][1]=='X'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[0][0]=='X'&&Board[0][2]=='X'&&Board[0][1]==' ')
+        Cordinate=2;
+   else if(Board[1][0]=='X'&&Board[1][2]=='X'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[2][0]=='X'&&Board[2][2]=='X'&&Board[2][1]==' ')
+        Cordinate=8;
+   else if(Board[0][0]=='X'&&Board[2][2]=='X'&&Board[1][1]==' ')
+        Cordinate=5;
+   else if(Board[1][1]=='X'&&Board[1][2]=='X'&&Board[1][0]==' ')
+        Cordinate=4;
+   else
+       computerPlay();
+   return Cordinate;
+   }
 
 
 int main(void)
