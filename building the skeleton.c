@@ -241,6 +241,69 @@ int smartDefence(void)//function to increase game intelligence
    return Cordinate;
    }
 
+   int getMode()
+     {
+       do{
+           printf("Hello would you love to play with human or computer?: \n\n");
+           puts("\t\t1: COMPUTER\n\n");
+           puts("\t\t2: HUMAN\n\n");
+           puts("\t\t3: Help\n");
+           printf("waiting....");
+           scanf("%d", &mode);
+           if(mode==3){
+                help();
+                getch();
+                     }
+           system("cls");
+           printf("\t\t\t                        \n\t\t\t=========================\n");
+           puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
+           while(getchar()==ch)//ensuring program works when character is entered.
+           {
+             putchar(ch);//ignore characters
+             scanf("%d", &mode);
+           }
+             if(mode==1)
+             {
+                do{
+                    puts("\t*Which do you prefer?: \n\n"
+                       "\t0: BASIC Mode\n\n"
+                       "\t1: EXPERT Mode\n\n"
+                       "\t2: PRO Mode\n\n"
+                       "\t3: Help\n");
+                       printf("Waiting...");
+                  scanf("%d", &expert);
+                  if(expert==3)
+                  {
+                    help();
+                    getch();
+                    }
+                  //system("cls");
+                  while(getchar()==ch)//ensuring program works when character is entered.
+                  {
+                   putchar(ch);//ignore characters
+                   scanf("%d", &expert);
+                  }
+                   
+                   }while(expert!=0&&expert!=1&&expert!=2);
+             }
+           }while(mode!=1&&mode!=2);
+          return mode;
+     }
+int checkXorOHasWon(void)//function checks if there is a win or not
+    {
+         if((Board[0][0]==Board[0][1]&&Board[0][1]==Board[0][2])&&Board[0][0]!=' '||
+            (Board[1][0]==Board[1][1]&&Board[1][1]==Board[1][2])&&Board[1][0]!=' '||
+            (Board[2][0]==Board[2][1]&&Board[2][1]==Board[2][2])&&Board[2][0]!=' '||
+            (Board[0][0]==Board[1][0]&&Board[1][0]==Board[2][0])&&Board[0][0]!=' '||
+            (Board[0][1]==Board[1][1]&&Board[1][1]==Board[2][1])&&Board[0][1]!=' '||
+            (Board[0][2]==Board[1][2]&&Board[1][2]==Board[2][2])&&Board[0][2]!=' '||
+            (Board[0][0]==Board[1][1]&&Board[1][1]==Board[2][2])&&Board[0][0]!=' '||
+            (Board[0][2]==Board[1][1]&&Board[1][1]==Board[2][0])&&Board[0][2]!=' ')
+            return 1;
+            else return 0;
+    }
+   
+
 
 int main(void)
 {
