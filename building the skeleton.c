@@ -303,7 +303,36 @@ int checkXorOHasWon(void)//function checks if there is a win or not
             else return 0;
     }
    
-
+int checkValidMove(int Row, int Column)//function ensures all moves made are valid
+    {
+        if((Row>=0&&Row<=2)&&(Column>=0&&Column<=2)&&(Board[Row][Column]==' '))
+        return 1;
+        else
+        return 0;
+    }                                                                              
+    
+    void displayBoard(void)//displays the grid on the screen
+    {
+         printf("\t\t\t  +----+----+----+\n"
+                "\t\t\t  | %c  | %c  | %c  |\n", Board[0][0],Board[0][1],Board[0][2]);
+         printf("\t\t\t  +----+----+----+\n"
+                "\t\t\t  | %c  | %c  | %c  |\n", Board[1][0],Board[1][1],Board[1][2]);
+         printf("\t\t\t  +----+----+----+\n"
+                "\t\t\t  | %c  | %c  | %c  |\n", Board[2][0],Board[2][1],Board[2][2]);
+         printf("\t\t\t  +----+----+----+\n\n");
+    }
+    void clearBoard(void)//sets all grid positions to null
+    {
+         Board[0][0]=' ';
+         Board[0][1]=' ';
+         Board[0][2]=' ';
+         Board[1][0]=' ';
+         Board[1][1]=' ';
+         Board[1][2]=' ';
+         Board[2][0]=' ';
+         Board[2][1]=' ';
+         Board[2][2]=' ';
+    }
 
 int main(void)
 {
