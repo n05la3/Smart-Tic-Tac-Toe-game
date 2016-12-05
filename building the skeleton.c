@@ -334,6 +334,66 @@ int checkValidMove(int Row, int Column)//function ensures all moves made are val
          Board[2][2]=' ';
     }
 
+void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obtain desired row and column from two users and computer
+    {
+         if(mode==2)
+         {
+          if(currentSymbol=='X')
+          {
+            printf("Player (X): \n");
+            printf("Enter Grid Position: ");
+            scanf("%d", &Cordinate);
+          }
+         else{
+              printf("player (O): \n");
+              printf("Enter Grid Position: "); 
+              scanf("%d", &Cordinate);
+              }
+         }
+    else{
+          if(currentSymbol=='X')
+          {
+            printf("Player (X): \n");
+            printf("Enter Grid Position: ");
+            scanf("%d", &Cordinate);
+            while(getchar()==ch)//ensuring program works when character is entered.
+           {
+             putchar(ch);//ignorecharacters
+             scanf("%d", &Cordinate);
+             }
+          }
+          else{
+               if(expert==0)
+                   computerPlay(); 
+               else if(expert==1) 
+                 {
+                    int i;
+                    for(i=1; i<=5; i++)
+                     {
+                       printf(".");
+                       Sleep(700);
+
+                     }               
+                   Cordinate=smartDefence();}
+               else{
+                    if(NoMoves==1&&currentSymbol=='O')
+                       Cordinate=smartMove();
+                    else{
+                         int i;           
+                         for(i=1; i<=5; i++)
+                          {
+                            printf(".");
+                            Sleep(700);
+                          }
+                         Cordinate=smartDefence();
+                         Cordinate=smartAttack();}
+                 }
+               }
+         }
+         convert2DTo1D();
+         
+}
+
 int main(void)
 {
     return 0;
