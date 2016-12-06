@@ -40,9 +40,9 @@ void get_int(int *n)
 	{
 		printf("Invalid <try again>: ");
 		while((ch=getchar())!='\n')
-		{
-			printf(" ");
-			printf("\b");
+		{ 
+			fflush(stdin);
+			fflush(stdout);
 		}
 	}
 }
