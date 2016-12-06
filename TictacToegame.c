@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<math.h>
 #include<time.h>//to pass in the srand function
+#include "functions.h"
 int Row,Column,NoMoves,Cordinate,expert;
 char player1[18],player2[18]; //string variable to hold names of players
 int validMove,GameHasBeenWon,GameHasBeenDrawn;
@@ -249,18 +250,14 @@ int smartDefence(void)//function to increase game intelligence
            puts("\t\t2: HUMAN\n\n");
            puts("\t\t3: Help\n");
            printf("waiting....");
-           scanf("%d", &mode);
+           get_int(&mode);
            if(mode==3){
                 help();
                      }
            system("clear");
            printf("\t\t\t                        \n\t\t\t=========================\n");
            puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
-           while(getchar()==ch)//ensuring program works when character is entered.
-           {
-             putchar(ch);//ignore characters
-             scanf("%d", &mode);
-           }
+            
              if(mode==1)
              {
                 do{
@@ -270,19 +267,10 @@ int smartDefence(void)//function to increase game intelligence
                        "\t2: PRO Mode\n\n"
                        "\t3: Help\n");
                        printf("Waiting...");
-                  scanf("%d", &expert);
+                  get_int(&expert);
                   if(expert==3)
-                  {
                     help();
-                    
-                    }
-                  system("clear");
-                  while(getchar()==ch)//ensuring program works when character is entered.
-                  {
-                   putchar(ch);//ignore characters
-                   scanf("%d", &expert);
-                  }
-                   
+                  system("clear"); 
                    }while(expert!=0&&expert!=1&&expert!=2);
              }
            }while(mode!=1&&mode!=2);
@@ -341,12 +329,12 @@ void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obta
           {
             printf("Player (X): \n");
             printf("Enter Grid Position: ");
-            scanf("%d", &Cordinate);
+            get_int(&Cordinate);
           }
          else{
               printf("player (O): \n");
               printf("Enter Grid Position: "); 
-              scanf("%d", &Cordinate);
+              get_int(&Cordinate);
               }
          }
     else{
@@ -354,11 +342,11 @@ void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obta
           {
             printf("Player (X): \n");
             printf("Enter Grid Position: ");
-            scanf("%d", &Cordinate);
+            get_int(&Cordinate);
             while(getchar()==ch)//ensuring program works when character is entered.
            {
              putchar(ch);//ignorecharacters
-             scanf("%d", &Cordinate);
+             get_int(&Cordinate);
              }
           }
           else{
@@ -460,7 +448,7 @@ int main(void)
          puts("\n 1: Yeah\n"
               "\n 2: Nope\n");
          printf("Waiting...");
-         scanf("%d", &choice);
+         get_int(&choice);
          if(choice==1)
          TryAgain=1;
         // if(TryAgain==2)
