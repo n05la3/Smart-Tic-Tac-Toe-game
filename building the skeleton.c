@@ -396,6 +396,84 @@ void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obta
 
 int main(void)
 {
+  int TryAgain=0;
+ do{
+    printf("\t\t\t                        \n\t\t\t=========================\n");
+    puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
+    srand(time(NULL));
+    NoMoves=0;
+    GameHasBeenWon=0;
+    getMode();
+    getPlayerName();
+    clearBoard();
+    displayBoard();
+    if((rand()%2)==1)
+     currentSymbol='X';
+    else currentSymbol='O';
+    do{
+        do{
+            getMoveCoordinates(currentSymbol, &Row,&Column);
+            if(checkValidMove(Row,Column)!=1)
+                {
+                 puts("INVALID MOVE!\n");
+                 }
+           }while(checkValidMove(Row,Column)!=1);
+        Board[Row][Column]=currentSymbol;
+        displayBoard();
+        system("cls");
+        printf("\t\t\t                        \n\t\t\t=========================\n");
+        puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
+        displayBoard();
+        GameHasBeenWon=checkXorOHasWon();
+        NoMoves++;
+        if(GameHasBeenWon!=1)
+          {
+             if(NoMoves==9)
+             GameHasBeenDrawn=1;
+             if(currentSymbol=='X')
+               currentSymbol='O';
+             else if(currentSymbol=='O')
+               currentSymbol='X';
+          }      
+      }while(GameHasBeenWon!=1&&GameHasBeenDrawn!=1);
+       if(GameHasBeenWon==1)
+       {
+          if(mode==1)
+            {
+                if(currentSymbol=='X')
+                printf("\tHurrrreeeey! %s Wins", player1);
+                else
+                printf("\tHurrrreeeey! COMPUTER GOT YOU THIS TIME!!!");
+            }
+          else
+          {
+             if(currentSymbol=='X')
+             printf("Hurrrreeeey! %s Wins", player1);
+            else
+             printf("Hurrrreeeey! %s Wins", player2);
+          }
+        }
+       else 
+       puts("Sorry A Draw This Time!"); 
+       int choice;
+       do{
+         printf("\n\nWish For Another Round?: ");
+         puts("\n 1: Yeah\n"
+              "\n 2: Nope\n");
+         printf("Waiting...");
+         scanf("%d", &choice);
+         if(choice==1)
+         TryAgain=1;
+        // if(TryAgain==2)
+         //puts("\nIt Was a Nice Round There!\n"); 
+        }while(choice!=1&&choice!=2);
+        system("cls");
+    }while(TryAgain==1);
+    
+    printf("\n<Key In Any Character To Exit Game>\n"
+         "Waiting... ");
+    
+    getch();
     return 0;
 
 }
