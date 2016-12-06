@@ -419,7 +419,7 @@ int main(void)
            }while(checkValidMove(Row,Column)!=1);
         Board[Row][Column]=currentSymbol;
         displayBoard();
-        system("clear");
+        system("clear");//for windows replace with: system("cls");
         printf("\t\t\t                        \n\t\t\t=========================\n");
         puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
         displayBoard();
