@@ -252,9 +252,8 @@ int smartDefence(void)//function to increase game intelligence
            scanf("%d", &mode);
            if(mode==3){
                 help();
-                getch();
                      }
-           system("cls");
+           system("clear");
            printf("\t\t\t                        \n\t\t\t=========================\n");
            puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
            while(getchar()==ch)//ensuring program works when character is entered.
@@ -275,9 +274,9 @@ int smartDefence(void)//function to increase game intelligence
                   if(expert==3)
                   {
                     help();
-                    getch();
+                    
                     }
-                  //system("cls");
+                  system("clear");
                   while(getchar()==ch)//ensuring program works when character is entered.
                   {
                    putchar(ch);//ignore characters
@@ -371,7 +370,7 @@ void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obta
                     for(i=1; i<=5; i++)
                      {
                        printf(".");
-                       Sleep(700);
+                      
 
                      }               
                    Cordinate=smartDefence();}
@@ -383,7 +382,7 @@ void getMoveCoordinates(char currentSymbol, int *Row, int *Column)//used to obta
                          for(i=1; i<=5; i++)
                           {
                             printf(".");
-                            Sleep(700);
+                           
                           }
                          Cordinate=smartDefence();
                          Cordinate=smartAttack();}
@@ -420,7 +419,7 @@ int main(void)
            }while(checkValidMove(Row,Column)!=1);
         Board[Row][Column]=currentSymbol;
         displayBoard();
-        system("cls");
+        system("clear");
         printf("\t\t\t                        \n\t\t\t=========================\n");
         puts("\t\t\tTIC TAC TOE GAME FOR TWO!\n\t\t\t=========================\n");
         displayBoard();
@@ -467,13 +466,13 @@ int main(void)
         // if(TryAgain==2)
          //puts("\nIt Was a Nice Round There!\n"); 
         }while(choice!=1&&choice!=2);
-        system("cls");
+        system("clear");
     }while(TryAgain==1);
     
     printf("\n<Key In Any Character To Exit Game>\n"
          "Waiting... ");
     
-    getch();
+   
     return 0;
 
 }
