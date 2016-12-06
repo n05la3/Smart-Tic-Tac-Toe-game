@@ -14,13 +14,13 @@ void help(void)
 {
     if(mode==3)
         puts("\n 1: If You Wish To Play With Computer  OR \n\n 2: If You Wish Play With Human!"
-        "\n\n Use Numbers 1 To 9 Place Tour Token in Your desired Grid \n\n\t(Type in a character to continue)");
+        "\n\n Use Numbers 1 To 9 Place Tour Token in Your desired Grid \n\n");
     if(expert==3)
     {
         puts("\n 0 BASIC: computer reasons randomly\n\n"
             " 1 EXPERT: computer is wiser but unable to make certain decisions\n\n"
             " 2 PRO: Computer Knows Exactly What To Do\n\n"
-            " tips: Is it possible to win??? Else defend!!!\n\n\n\t(KEY in a character to continue)\n");
+            " tips: Is it possible to win??? Else defend!!!\n\n\n");
     }
 }
 
@@ -253,6 +253,7 @@ int smartDefence(void)//function to increase game intelligence
            get_int(&mode);
            if(mode==3){
                 help();
+                quit();
                      }
            system("clear");
            printf("\t\t\t                        \n\t\t\t=========================\n");
@@ -269,7 +270,10 @@ int smartDefence(void)//function to increase game intelligence
                        printf("Waiting...");
                   get_int(&expert);
                   if(expert==3)
+                  {
                     help();
+                    quit();
+                  }
                   system("clear"); 
                    }while(expert!=0&&expert!=1&&expert!=2);
              }
@@ -457,9 +461,7 @@ int main(void)
         system("clear");
     }while(TryAgain==1);
     
-    printf("\n<Key In Any Character To Exit Game>\n"
-         "Waiting... ");
-    
+   quit(); 
    
     return 0;
 

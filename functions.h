@@ -46,3 +46,11 @@ void get_int(int *n)
 		}
 	}
 }
+
+void quit(void)
+{
+	char ch;
+	printf("\n\t\t <Enter q to quit>:  ");
+    while((ch=getchar())!='q')
+    	fflush(stdin);
+}
