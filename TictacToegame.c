@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include<math.h>
 #include<time.h>//to pass in the srand function
 #include "functions.h"
